@@ -31,5 +31,5 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
 ENV COMPOSER_VERSION master
 ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
+ENV COMPOSER_HOME /tmp
 WORKDIR /app
