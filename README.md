@@ -20,7 +20,7 @@ ox () {
         --volume /etc/passwd:/etc/passwd:ro \
         --volume /etc/group:/etc/group:ro \
         --volume $(pwd):/app \
-        ox "$@"
+         keywanghadamioxid/ox "$@"
 }
 ```
 ## usage linux command line
