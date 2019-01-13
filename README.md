@@ -20,7 +20,7 @@ ox () {
         --volume /etc/passwd:/etc/passwd:ro \
         --volume /etc/group:/etc/group:ro \
         --volume $(pwd):/app \
-        key-php-cli "$@"
+        ox "$@"
 }
 ```
 ## usage linux command line
