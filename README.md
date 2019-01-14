@@ -27,3 +27,27 @@ ox () {
 ```
 ox composer info
 ```
+
+## enable composer cache
+```
+mkdir /tmp/ox
+```
+and in your bashrc add the mount for the tmp folder
+```
+ox () {
+    tty=
+    tty -s && tty=--tty
+    docker run \
+        $tty \
+        --interactive \
+        --rm \
+        --user $(id -u):$(id -g) \
+        --volume /etc/passwd:/etc/passwd:ro \
+        --volume /etc/group:/etc/group:ro \
+        --volume /tmp/ox:/tmp \
+        --volume $(pwd):/app \
+         keywanghadamioxid/ox "$@"
+}
+```
+
+
