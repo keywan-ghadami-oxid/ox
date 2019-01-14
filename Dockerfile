@@ -1,4 +1,4 @@
-FROM php:7.1-cli-alpine
+FROM php:7.0-cli-alpine
 
 RUN docker-php-ext-install -j$(nproc) mbstring iconv bcmath
 
