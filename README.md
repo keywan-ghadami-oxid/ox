@@ -19,7 +19,10 @@ ox () {
         --user $(id -u):$(id -g) \
         --volume /etc/passwd:/etc/passwd:ro \
         --volume /etc/group:/etc/group:ro \
+        --volume $HOME:$HOME \
         --volume $(pwd):/app \
+        --volume $SSH_AUTH_SOCK:/ssh-agent \
+        --env SSH_AUTH_SOCK=/ssh-agent \
          keywanghadamioxid/ox "$@"
 }
 ```
@@ -32,22 +35,10 @@ ox composer info
 ```
 mkdir /tmp/ox
 ```
-and in your bashrc add the mount for the tmp folder
+and in your bashrc add the mount for the tmp folder by adding one
+line into the ox definition in your .bashrc
 ```
-ox () {
-    tty=
-    tty -s && tty=--tty
-    docker run \
-        $tty \
-        --interactive \
-        --rm \
-        --user $(id -u):$(id -g) \
-        --volume /etc/passwd:/etc/passwd:ro \
-        --volume /etc/group:/etc/group:ro \
         --volume /tmp/ox:/tmp \
-        --volume $(pwd):/app \
-         keywanghadamioxid/ox "$@"
-}
 ```
 
 
